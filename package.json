@@ -1,0 +1,23 @@
+{
+  "name": "my-landing",
+  "version": "1.0.0",
+  "description": "Landing page for me",
+  "main": "target/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velmyk/velmyk.github.io.git"
+  },
+  "keywords": [
+    "landing",
+    "velmyk"
+  ],
+  "author": "velmyk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/velmyk/velmyk.github.io/issues"
+  },
+  "homepage": "https://github.com/velmyk/velmyk.github.io#readme"
+}
