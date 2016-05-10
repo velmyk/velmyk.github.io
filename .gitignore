@@ -2,3 +2,4 @@
 target/*
 .DS_Store
 deploy_key
+npm-debug.log
