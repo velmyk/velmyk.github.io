@@ -6,3 +6,6 @@ env:
   global:
     - ENCRYPTION_LABEL: 53a1fb6242c1
     - COMMIT_AUTHOR_EMAIL: velmyk@gmail.com
+cache:
+  directories:
+    - node_modules
