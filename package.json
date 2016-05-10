@@ -4,7 +4,7 @@
     "description": "Landing page for me",
     "main": "target/index.html",
     "scripts": {
-        "clean": "rimraf target",
+        "clean": "rimraf target/*",
         "folders": "mkdir ./target ./target/img",
         "static:html": "cp ./src/index.html ./target/index.html",
         "static:img": "cp ./src/images/content/*.jpg ./target/img/ 2>/dev/null || :",
