@@ -1,23 +1,47 @@
 {
-  "name": "my-landing",
-  "version": "1.0.0",
-  "description": "Landing page for me",
-  "main": "target/index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/velmyk/velmyk.github.io.git"
-  },
-  "keywords": [
-    "landing",
-    "velmyk"
-  ],
-  "author": "velmyk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/velmyk/velmyk.github.io/issues"
-  },
-  "homepage": "https://github.com/velmyk/velmyk.github.io#readme"
+    "name": "my-landing",
+    "version": "1.0.0",
+    "description": "Landing page for me",
+    "main": "target/index.html",
+    "scripts": {
+        "clean": "rimraf target",
+        "folders": "mkdir ./target ./target/img",
+        "static:html": "cp ./src/index.html ./target/index.html",
+        "static:img": "cp ./src/images/content/*.jpg ./target/img/ 2>/dev/null || :",
+        "autoprefixer": "postcss -u autoprefixer -r target/*.css",
+        "build:css": "node-sass --output-style compressed ./src/scss/core.scss ./target/app.css",
+        "watch:css": "onchange 'src/**/*.scss' -- npm-run-all build:css autoprefixer",
+        "watch:html": "onchange 'src/index.html' -- npm run static:html",
+        "icons": "spritesmith",
+        "browser-sync": "browser-sync start --server --files 'src/**/*.*'",
+        "start": "npm run build && npm-run-all --parallel watch:css watch:html browser-sync",
+        "build": "npm-run-all clean folders static:html static:img icons build:css autoprefixer"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/velmyk/velmyk.github.io.git"
+    },
+    "keywords": [
+        "landing",
+        "velmyk"
+    ],
+    "author": "velmyk",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/velmyk/velmyk.github.io/issues"
+    },
+    "homepage": "https://github.com/velmyk/velmyk.github.io#readme",
+    "devDependencies": {
+        "browser-sync": "2.12.1",
+        "autoprefixer": "6.3.4",
+        "node-sass": "3.4.2",
+        "npm-run-all": "1.5.1",
+        "onchange": "2.2.0",
+        "postcss-cli": "2.5.1",
+        "rimraf": "2.5.2",
+        "spritesmith-cli": "1.1.2"
+    },
+    "engines": {
+        "node": "5.10"
+    }
 }
