@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-  - '5.10'
+- '5.10'
 script: bash ./deploy.sh
 env:
   global:
-    - ENCRYPTION_LABEL: "53a1fb6242c1"
-    - COMMIT_AUTHOR_EMAIL: "velmyk@gmail.com"
+  - ENCRYPTION_LABEL: 53a1fb6242c1
+  - COMMIT_AUTHOR_EMAIL: velmyk@gmail.com
 before_install:
   - openssl aes-256-cbc -K $encrypted_53a1fb6242c1_key -iv $encrypted_53a1fb6242c1_iv -in deploy_key.enc -out deploy_key -d
 cache:
   directories:
-    - node_modules
+  - node_modules
