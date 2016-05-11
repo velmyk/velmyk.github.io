@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e # Exit with nonzero exit code if anything fails
 
-SOURCE_BRANCH="master"
-TARGET_BRANCH="gh-pages"
+SOURCE_BRANCH="develop"
+TARGET_BRANCH="master"
 
 function doCompile {
   npm run build
@@ -64,4 +64,4 @@ eval `ssh-agent -s`
 ssh-add .travisdeploykey
 
 # Now that we're all set up, we can push.
-git push $SSH_REPO $TARGET_BRANCH
+git push -f $SSH_REPO $TARGET_BRANCH
