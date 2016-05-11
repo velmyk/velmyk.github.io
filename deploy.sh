@@ -21,7 +21,7 @@ SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
 mkdir target
-cp -r .git .target/.git
+cp -r .git ./target/.git
 cd target
 git checkout -f $TARGET_BRANCH
 cd ..
