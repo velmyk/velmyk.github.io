@@ -20,14 +20,11 @@ REPO=`git config remote.origin.url`
 SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
-# Clone the existing master for this repo into target/
-git clone $REPO target
+mkdir target
+cp -r .git .target/.git
 cd target
-git checkout $TARGET_BRANCH
+git checkout -f $TARGET_BRANCH
 cd ..
-
-# Clean out existing contents
-rm -rf target/**/* || exit 0
 
 # Run our compile script
 doCompile
